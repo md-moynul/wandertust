@@ -19,7 +19,7 @@ const DestinationCard = ({ destination }) => {
                 <p className="text-2xl">${price}</p>
             </div>
             <p className="flex gap-3 items-center "><FaRegCalendarAlt /> {duration}</p>
-            <Link href={`/destination/${_id}`}><Button variant="outline">See Details</Button></Link>
+            <Link href={`/destinations/${_id}`}><Button variant="outline">See Details</Button></Link>
         </Card>
     );
 };

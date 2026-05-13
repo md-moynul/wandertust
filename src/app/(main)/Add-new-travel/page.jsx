@@ -1,6 +1,7 @@
 "use client"
 
 import { FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button, Card } from "@heroui/react";
+import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
 const AddTravelPage = () => {
@@ -20,6 +21,7 @@ const AddTravelPage = () => {
         console.log(data);
         if(data.insertedId){
             toast.success(`${NewTravel.destinationName} is added successfully`)
+            redirect('/destinations')
         }
         
         

@@ -1,5 +1,6 @@
 'use client'
 
+import LoginWith from "@/components/LoginWith";
 import { authClient } from "@/lib/auth-client";
 import { Button, Card, Description, FieldError, Form, Input, Label, Separator, TextField } from "@heroui/react";
 import { useRouter } from "next/navigation";
@@ -18,9 +19,7 @@ const LoginPage = () => {
         const { data, error } = await authClient.signIn.email({
             email: userData.email,
             password: userData.password,
-
         })
-        console.log(data,error);
         
         if (data) {
             toast.success('Sign in successful')
@@ -95,6 +94,7 @@ const LoginPage = () => {
                         <p className="whitespace-nowrap">Or sign up with</p>
                         <Separator />
                     </div>
+                    <LoginWith />
                 </Card>
             </div>
         </div>

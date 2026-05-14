@@ -1,5 +1,6 @@
 'use client'
 
+import LoginWith from "@/components/LoginWith";
 import { authClient } from "@/lib/auth-client";
 import { Button, Card, Description, FieldError, Form, Input, Label, Separator, TextField } from "@heroui/react";
 import { useRouter } from "next/navigation";
@@ -32,8 +33,8 @@ const SignupPage = () => {
     return (
         <div className="min-h-screen flex justify-center py-10">
             <div>
-                <h2 className="text-center text-2xl md:text-4xl lg:">Create Account</h2>
-                <p className="text-center my-5">Start your adventure with Wanderlust</p>
+                <h2 className="text-center text-2xl md:text-4xl font-bold">Create Account</h2>
+                <p className="text-center my-4">Start your adventure with Wanderlust</p>
                 <Card className="p-5 rounded-none">
                     <Form className="flex min-w-xs flex-col gap-4 " onSubmit={onSubmit}>
                         <TextField
@@ -110,6 +111,7 @@ const SignupPage = () => {
                         <p className="whitespace-nowrap">Or sign up with</p>
                         <Separator />
                     </div>
+                    <LoginWith/>
                 </Card>
             </div>
         </div>

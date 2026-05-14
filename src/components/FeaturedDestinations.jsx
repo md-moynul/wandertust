@@ -17,7 +17,7 @@ const FeaturedDestinations = async() => {
                 </div>
                 <Button variant="outline" className={'text-accent rounded-none border-accent'}><Link href={'/destinations'}>All Destination</Link></Button>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {featuredDestinations.map(destination => <DestinationCard key={destination._id} destination={destination} />)}
             </div>
         </div>

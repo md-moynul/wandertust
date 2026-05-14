@@ -31,14 +31,19 @@ const DetailsPage = async ({ params }) => {
                     <Image src={imageUrl} alt={destinationName} fill
                         className="object-center w-full" />
                 </div>
-                <p className="font-medium flex gap-1 items-center"><MapPin />{country}</p>
                 <div className="flex justify-between items-center">
-                    <p className="text-2xl font-bold">{destinationName}</p>
+
+                    <div className=" space-y-4">
+                        <p className="font-medium flex gap-1 items-center"><MapPin />{country}</p>
+                        <p className="text-2xl font-bold">{destinationName}</p>
+                        <p className="flex gap-3 items-center "><FaRegCalendarAlt /> {duration}</p>
+                        <p className="text-4xl">Overview </p>
+                        <p>{description}</p>
+                    </div>
+                    <Card className="p-5">
                     <p className="text-2xl">${price}</p>
+                    </Card>
                 </div>
-                <p className="flex gap-3 items-center "><FaRegCalendarAlt /> {duration}</p>
-                <p>Overview </p>
-                <p>{description}</p>
             </Card>
         </div>
     );

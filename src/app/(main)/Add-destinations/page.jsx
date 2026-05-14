@@ -1,31 +1,22 @@
 "use client"
 
+import { addDestination } from "@/lib/action";
 import { Check } from "@gravity-ui/icons";
 import { FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button, Card } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
-const AddTravelPage = () => {
+const AddDestinationPage = () => {
     const onSubmit = async (e) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
         const NewTravel = Object.fromEntries(formData.entries())
         console.log(NewTravel);
-        const res = await fetch('http://localhost:5000/destination', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(NewTravel)
-        })
-        const data = await res.json();
-        console.log(data);
+        const data = await addDestination(NewTravel)
         if (data.insertedId) {
             toast.success(`${NewTravel.destinationName} is added successfully`)
             redirect('/destinations')
         }
-
-
     }
     return (
         <div className="container mx-auto space-y-6 pb-5">
@@ -174,4 +165,4 @@ const AddTravelPage = () => {
     );
 };
 
-export default AddTravelPage;
+export default AddDestinationPage;

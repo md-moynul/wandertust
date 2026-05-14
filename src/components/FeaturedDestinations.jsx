@@ -6,7 +6,7 @@ import DestinationCard from "./DestinationCard";
 const FeaturedDestinations = async() => {
      const destinations = await getDestinations()
      const featuredDestinations = destinations.slice(0,3)
-     console.log(featuredDestinations);
+    //  console.log(featuredDestinations);
      
     return (
         <div className="py-10 ">

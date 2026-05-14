@@ -9,12 +9,10 @@ import { Avatar, Button, Spinner } from "@heroui/react";
 import { LuLogOut } from "react-icons/lu";
 
 const Navbar = () => {
-
+    const [isHidden, setIsHidden] = useState('false')
     const {
         data: session,
         isPending,
-        error,
-        refetch
     } = authClient.useSession()
     const user = session?.user;
     // console.log(user);
@@ -22,18 +20,19 @@ const Navbar = () => {
 
         const { data, error } = await authClient.signOut();
         console.log(data);
-        
-    }
 
-    const [isHidden, setIsHidden] = useState('false')
+    }
+    const links = <>
+        <li><Link href={'/'} >Home</Link></li>
+        <li><Link href={'/destinations'} >Destinations</Link></li>
+        <li><Link href={'/my-bookings'} >My Bookings</Link></li>
+        {/* <li><Link href={'/admin'} >Admin</Link></li> */}
+        <li><Link href={'/Add-destinations'} >Add-destinations</Link></li>
+    </>
     return (
         <div className="flex justify-between py-5 px-10 text-lg font-medium ">
             <ul className=" gap-3 hidden md:flex">
-                <li><Link href={'/'} >Home</Link></li>
-                <li><Link href={'/destinations'} >Destinations</Link></li>
-                {/* <li><Link href={'/my-bookings'} >My Bookings</Link></li>
-                <li><Link href={'/admin'} >Admin</Link></li> */}
-                <li><Link href={'/Add-destinations'} >Add-destinations</Link></li>
+                {links}
             </ul>
             <Image
                 src={'/assets/Wanderlast.png'}
@@ -65,11 +64,7 @@ const Navbar = () => {
             </ul>
             <div className={`p-2 bg-background/90 md:hidden absolute duration-1000 ${isHidden ? '-top-50 right-2 ' : "top-20 right-2"}`}>
                 <ul className=" gap-3">
-                    <li><Link href={'/'} >Home</Link></li>
-                    <li><Link href={'/destinations'} >Destinations</Link></li>
-                    {/* <li><Link href={'/my-bookings'} >My Bookings</Link></li>
-                        <li><Link href={'/admin'} >Admin</Link></li> */}
-                    <li><Link href={'/Add-destinations'} >Add-destinations</Link></li>
+                    {links}
                 </ul>
             </div>
         </div>

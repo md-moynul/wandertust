@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 export const updateDestination = async(destination,_id) => {
     
-    console.log(destination);
+    // console.log(destination);
     
     const res = await fetch(`http://localhost:5000/destination/${_id} ` ,{
         method: "PATCH" ,
@@ -23,7 +23,7 @@ export const updateDestination = async(destination,_id) => {
     }
 }
 export const deleteDestination = async(destination) => {
-    console.log(destination);
+    // console.log(destination);
     
     const res = await fetch(`http://localhost:5000/destination/${destination._id} ` ,{
         method: "DELETE" ,

@@ -1,30 +1,31 @@
 "use client"
 
+import { Check } from "@gravity-ui/icons";
 import { FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button, Card } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
 const AddTravelPage = () => {
-    const onSubmit = async(e) =>{
+    const onSubmit = async (e) => {
         e.preventDefault()
-        const formData =new FormData(e.currentTarget)
+        const formData = new FormData(e.currentTarget)
         const NewTravel = Object.fromEntries(formData.entries())
         console.log(NewTravel);
-        const res =  await fetch('http://localhost:5000/destination' ,{
-            method : "POST",
-            headers :{
-                "content-type" : "application/json"
+        const res = await fetch('http://localhost:5000/destination', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
             },
-            body : JSON.stringify(NewTravel)
+            body: JSON.stringify(NewTravel)
         })
         const data = await res.json();
         console.log(data);
-        if(data.insertedId){
+        if (data.insertedId) {
             toast.success(`${NewTravel.destinationName} is added successfully`)
             redirect('/destinations')
         }
-        
-        
+
+
     }
     return (
         <div className="container mx-auto space-y-6 pb-5">
@@ -152,15 +153,21 @@ const AddTravelPage = () => {
                     </div>
 
                     {/* Buttons */}
+                    <div className="flex gap-4">
+                        <Button
+                            type="submit"
+                            variant="outline"
 
-                    <Button
-                        type="submit"
-                        variant="outline"
+                            className="flex-1 rounded-none w-full bg-cyan-500 text-white"
+                        >
+                            <Check />
+                            Add Travel Package
+                        </Button>
+                        <Button type="reset" variant="secondary" className={'flex-1 rounded-none w-full'}>
+                            Reset
+                        </Button>
+                    </div>
 
-                        className=" rounded-none w-full bg-cyan-500 text-white"
-                    >
-                        Add Travel Package
-                    </Button>
                 </form>
             </Card>
         </div>

@@ -48,7 +48,7 @@ const Navbar = () => {
                         <div className="flex gap-3">
                             <Avatar>
                                 <Avatar.Image src={user?.image} alt={user?.name} />
-                                <Avatar.Fallback>JD</Avatar.Fallback>
+                                <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
                             </Avatar>
                             <Button onClick={handelLogout} className={'rounded-full py-1'} variant="danger-soft" ><LuLogOut /></Button>
                         </div>

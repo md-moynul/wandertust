@@ -7,8 +7,8 @@ import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
-const BookCard = ({ destination }) => {
-    const { _id, destinationName, price ,imageUrl} = destination;
+const BookingCard = ({ destination }) => {
+    const { _id, destinationName, price ,imageUrl,country} = destination;
     const {
         data: session,
         isPending,
@@ -25,7 +25,8 @@ const BookCard = ({ destination }) => {
             destinationName,
             destinationImage : imageUrl,
             price,
-            departureDate : new Date(bookingDate)
+            departureDate : new Date(bookingDate),
+            country
         }
         const data = await addBooking(bookingData);
         console.log(data);
@@ -59,4 +60,4 @@ const BookCard = ({ destination }) => {
     );
 };
 
-export default BookCard;
+export default BookingCard;

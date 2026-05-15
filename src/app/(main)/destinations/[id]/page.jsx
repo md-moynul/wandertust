@@ -1,5 +1,4 @@
-
-import BookCard from "@/components/BookCard";
+import BookingCard from "@/components/BookingCard";
 import DeleteModal from "@/components/DeleteModal";
 import EditModal from "@/components/EditModal";
 import { getDestinationById } from "@/lib/data";
@@ -41,7 +40,7 @@ const DetailsPage = async ({ params }) => {
                         <p className="text-4xl">Overview </p>
                         <p>{description}</p>
                     </div>
-                    <BookCard destination={destination} />
+                    <BookingCard destination={destination} />
                 </div>
             </Card>
         </div>

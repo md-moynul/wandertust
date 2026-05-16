@@ -33,14 +33,14 @@ const DetailsPage = async ({ params }) => {
                 </div>
                 <div className="flex justify-between items-center gap-5">
 
-                    <div className=" space-y-4">
+                    <div className=" space-y-4 flex-1">
                         <p className="font-medium flex gap-1 items-center"><MapPin />{country}</p>
                         <p className="text-2xl font-bold">{destinationName}</p>
                         <p className="flex gap-3 items-center "><FaRegCalendarAlt /> {duration}</p>
                         <p className="text-4xl">Overview </p>
                         <p>{description}</p>
                     </div>
-                    <BookingCard destination={destination} />
+                    <BookingCard destination={destination} className="flex-1" />
                 </div>
             </Card>
         </div>

@@ -1,4 +1,5 @@
-
+"use client"
+// import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
@@ -53,5 +54,17 @@ export const addDestination = async (NewTravel) => {
         body: JSON.stringify(NewTravel)
     })
     const data = await res.json();
+    return data;
+}
+export const cancelBooking = async (booking) => {
+    const res = await fetch(`http://localhost:5000/bookings/${booking._id}`, {
+        method: "DELETE",
+        headers: { 'content-type': "application/json" }
+    })
+    const data =await res.json()
+    if (data.deletedCount > 0) {
+        toast.warning(`${booking.destinationName} is Deleted`)
+        window.location.reload()
+    }
     return data;
 }

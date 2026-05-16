@@ -5,7 +5,7 @@ const DetailsPage = async({params}) => {
     
     return (
         <div>
-            
+            details coming soon
         </div>
     );
 };

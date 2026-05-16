@@ -37,7 +37,7 @@ const BookingCard = ({ destination }) => {
 
     }
     return (
-        <Card className="p-5 rounded-none w-md space-y-3 my-5">
+        <Card className="p-5 rounded-none w-md space-y-3 my-5 max-w-xs">
             <div className="space-y-2">
                 <p className="text-4xl text-accent font-semibold">${price}</p>
                 <p>Par Parson</p>

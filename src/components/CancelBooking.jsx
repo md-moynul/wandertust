@@ -1,11 +1,12 @@
 "use client";
 
-import { deleteDestination } from "@/lib/action";
+
+import { cancelBooking } from "@/lib/action";
 import { TrashBin } from "@gravity-ui/icons";
 import { AlertDialog, Button } from "@heroui/react";
 
 
-const CancelBooking = () => {
+const CancelBooking = ({booking}) => {
     return (
         <AlertDialog>
           <Button variant='outline' className={'rounded-none text-red-500 border-red-500'}><TrashBin />Cancel</Button>
@@ -19,16 +20,13 @@ const CancelBooking = () => {
                         </AlertDialog.Header>
                         <AlertDialog.Body>
                             <p>
-                                This will permanently delete <strong>{}</strong> and all of its
+                                This will permanently delete <strong>{booking.destinationName}</strong> and all of its
                                 data. This action cannot be undone.
                             </p>
                         </AlertDialog.Body>
                         <AlertDialog.Footer>
-                            <Button slot="close" variant="tertiary">
-                                Cancel
-                            </Button>
-                            <Button  slot="close" variant="danger">
-                                Delete
+                            <Button onClick={() => cancelBooking(booking)}  slot="close" variant="danger">
+                                Cancel Booking
                             </Button>
                         </AlertDialog.Footer>
                     </AlertDialog.Dialog>

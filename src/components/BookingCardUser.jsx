@@ -11,13 +11,13 @@ const BookingCardUser = ({ booking }) => {
 
 
     return (
-        <Card className='p-6 rounded-none grid grid-cols-12  gap-4'>
+        <Card className='p-6 rounded-none grid md:grid-cols-12  gap-4 max-w-4xl mx-auto'>
             <div className='relative  aspect-square col-span-3'>
                 <Image
                     src={destinationImage}
                     alt={destinationName}
                     fill
-                    className="object-center rounded" />
+                    className="object-center rounded mx-auto" />
             </div>
             <div className=' col-span-6 flex items-center '>
                 <div className='space-y-4'>
@@ -30,8 +30,8 @@ const BookingCardUser = ({ booking }) => {
                 </div>
             </div>
             <div className='col-span-3 flex items-end justify-end'>
-                <div className='space-x-4'>
-                    <CancelBooking />
+                <div className='space-x-4 space-y-4'>
+                    <CancelBooking booking={booking} />
                     <Link href={`/my-bookings/${_id}`}><Button variant='primary' className={'rounded-none bg-accent'}><Eye />View</Button></Link>
 
                 </div>

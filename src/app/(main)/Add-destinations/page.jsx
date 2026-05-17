@@ -11,7 +11,7 @@ const AddDestinationPage = () => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
         const NewTravel = Object.fromEntries(formData.entries())
-        console.log(NewTravel);
+        // console.log(NewTravel);
         const data = await addDestination(NewTravel)
         if (data.insertedId) {
             toast.success(`${NewTravel.destinationName} is added successfully`)

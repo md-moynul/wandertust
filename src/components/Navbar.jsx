@@ -7,6 +7,7 @@ import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { Avatar, Button, Spinner } from "@heroui/react";
 import { LuLogOut } from "react-icons/lu";
+import { redirect } from "next/navigation";
 
 const Navbar = () => {
     const [isHidden, setIsHidden] = useState('false')
@@ -19,7 +20,10 @@ const Navbar = () => {
     const handelLogout = async () => {
 
         const { data, error } = await authClient.signOut();
-        console.log(data);
+        if(data){
+            redirect('/login')
+        }
+        // console.log(data);
 
     }
     const links = <>

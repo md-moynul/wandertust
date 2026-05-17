@@ -3,10 +3,10 @@ import DeleteModal from "@/components/DeleteModal";
 import EditModal from "@/components/EditModal";
 import { getDestinationById } from "@/lib/data";
 import { MapPin } from "@gravity-ui/icons";
-import { Button, Card, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { Button, Card} from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowRight, FaRegCalendarAlt } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoMdArrowBack } from "react-icons/io";
 
 const DetailsPage = async ({ params }) => {

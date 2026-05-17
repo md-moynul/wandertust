@@ -1,5 +1,5 @@
 "use client"
-// import { revalidatePath } from "next/cache";
+
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
@@ -12,7 +12,7 @@ export const updateDestination = async (destination, _id) => {
         body: JSON.stringify(destination)
     })
     const data = await res.json()
-    console.log("after update", data);
+    // console.log("after update", data);
     if (data.modifiedCount > 0) {
         toast.warning(`${destination.destinationName} is Updated`)
         redirect(`/destinations/${_id}`)
@@ -27,7 +27,7 @@ export const deleteDestination = async (destination) => {
         body: JSON.stringify(destination)
     })
     const data = await res.json()
-    console.log("after delete", data);
+    // console.log("after delete", data);
     if (data.deletedCount > 0) {
         toast.warning(`${destination.destinationName} is Deleted`)
         redirect('/destinations')

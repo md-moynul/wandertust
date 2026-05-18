@@ -23,8 +23,14 @@ export const getDestinationById = async (id) => {
 }
 export const getBookingByUserId = async (userId) => {
     // console.log(userId);
-
-    const res = await fetch(`http://localhost:5000/bookings/${userId}`)
+    const {token} = await auth.api.getToken({
+        headers : await headers()
+    })
+    const res = await fetch(`http://localhost:5000/bookings/${userId}`,{
+        headers : {
+            authorization : `Bearer ${token}`
+        }
+    })
     const data = await res.json()
     // console.log(data);
 

@@ -8,6 +8,7 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Button, Spinner } from "@heroui/react";
 import { LuLogOut } from "react-icons/lu";
 import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
     const [isHidden, setIsHidden] = useState('false')
@@ -21,6 +22,7 @@ const Navbar = () => {
 
         const { data, error } = await authClient.signOut();
         if(data){
+            toast.success('Logout successful')
             redirect('/login')
         }
         // console.log(data);

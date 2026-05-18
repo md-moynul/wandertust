@@ -5,7 +5,7 @@ import {AlertDialog, Button} from "@heroui/react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 export default function DeleteModal({destination}) {
-  console.log(destination);
+  // console.log(destination);
   
   return (
     <AlertDialog>
